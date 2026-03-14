@@ -2,6 +2,36 @@ function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value))
 }
 
+export const comfortCategoryOrder = [
+  'Good for newcomers',
+  'Best with a friend',
+  'Small friendly group',
+  'Large lively crowd',
+]
+
+export const comfortCategoryMeta = {
+  'Good for newcomers': {
+    accent: 'sage',
+    shortLabel: 'Newcomer-friendly',
+    summary: 'Relaxed, structured, and easy for first-time attendees.',
+  },
+  'Best with a friend': {
+    accent: 'blue',
+    shortLabel: 'Best with a friend',
+    summary: 'Better for students who prefer bringing a friend.',
+  },
+  'Small friendly group': {
+    accent: 'teal',
+    shortLabel: 'Small friendly group',
+    summary: 'Smaller circle with easier introductions and quieter conversation.',
+  },
+  'Large lively crowd': {
+    accent: 'peach',
+    shortLabel: 'Large lively crowd',
+    summary: 'More energetic atmosphere with a larger crowd.',
+  },
+}
+
 function buildScore(event) {
   let score = 48
 
@@ -35,8 +65,7 @@ export function getComfortAssessment(event) {
       label: 'Large lively crowd',
       score,
       tone: 'lively',
-      explanation:
-        'Higher energy setting with more people and faster social pace. Great if you like activity and movement.',
+      explanation: 'More energetic atmosphere with a larger crowd.',
     }
   }
 
@@ -45,8 +74,7 @@ export function getComfortAssessment(event) {
       label: 'Small friendly group',
       score,
       tone: 'gentle',
-      explanation:
-        'Smaller circle with easier introductions and room for quieter conversation.',
+      explanation: 'Smaller circle with easier introductions and quieter conversation.',
     }
   }
 
@@ -55,8 +83,7 @@ export function getComfortAssessment(event) {
       label: 'Good for newcomers',
       score,
       tone: 'trusted',
-      explanation:
-        'Strong safety signals and clear event structure make this suitable for first-time attendees.',
+      explanation: 'Relaxed, structured, and easy for first-time attendees.',
     }
   }
 
@@ -64,8 +91,42 @@ export function getComfortAssessment(event) {
     label: 'Best with a friend',
     score,
     tone: 'balanced',
-    explanation:
-      'Comfortable option overall, and even easier if you attend with one friend or buddy.',
+    explanation: 'Comfortable overall, and even easier if you bring a friend.',
+  }
+}
+
+export function getComfortMeter(score) {
+  if (score >= 88) {
+    return {
+      label: 'Very comfortable',
+      filled: 5,
+    }
+  }
+
+  if (score >= 76) {
+    return {
+      label: 'Comfortable',
+      filled: 4,
+    }
+  }
+
+  if (score >= 58) {
+    return {
+      label: 'Moderate',
+      filled: 3,
+    }
+  }
+
+  if (score >= 46) {
+    return {
+      label: 'Socially active',
+      filled: 2,
+    }
+  }
+
+  return {
+    label: 'High-energy',
+    filled: 1,
   }
 }
 
@@ -76,11 +137,9 @@ export function getComfortDistribution(events) {
       acc[label] = (acc[label] || 0) + 1
       return acc
     },
-    {
-      'Good for newcomers': 0,
-      'Best with a friend': 0,
-      'Small friendly group': 0,
-      'Large lively crowd': 0,
-    },
+    comfortCategoryOrder.reduce((initial, label) => {
+      initial[label] = 0
+      return initial
+    }, {}),
   )
 }
