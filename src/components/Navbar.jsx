@@ -7,6 +7,7 @@ const navItems = [
   { label: 'Home', to: '/' },
   { label: 'Onboarding', to: '/onboarding' },
   { label: 'AI Buddy', to: '/chat' },
+  { label: 'AI Map', to: '/where-to-go' },
   { label: 'Events', to: '/events' },
   { label: 'Safety', to: '/safety' },
   { label: 'Starters', to: '/starters' },
