@@ -79,12 +79,12 @@ export function WhereToGoPage() {
     {
       id: 'starter-map-msg',
       role: 'assistant',
-      text: 'Tell me your vibe and I will highlight 3–5 places on the map.',
+      text: 'Tell me your vibe and I will highlight a strong set of places on the map.',
     },
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [suggestedPlaces, setSuggestedPlaces] = useState(mapPlaces.slice(0, 4))
+  const [suggestedPlaces, setSuggestedPlaces] = useState(mapPlaces.slice(0, 8))
   const [routeTips, setRouteTips] = useState({})
   const [settledPlaceId, setSettledPlaceId] = useState('')
   const [userLocation, setUserLocation] = useState(null)
@@ -171,7 +171,7 @@ export function WhereToGoPage() {
       <SectionTitle
         eyebrow="AI Map"
         title="Where Should I Go Today?"
-        description="Type your mood and get AI suggestions that appear directly on the map."
+        description="Type your mood and get a robust set of AI suggestions directly on the map."
         level="h1"
       />
 
@@ -223,7 +223,12 @@ export function WhereToGoPage() {
           <div className="map-place-list" aria-label="Suggested places">
             {suggestedPlaces.map((place) => (
               <article key={place.id} className="map-place-card">
-                <h3>{place.name}</h3>
+                <h3>
+                  {place.name}
+                  {place.sponsored ? (
+                    <span className="sponsored-badge">{place.sponsorLabel || 'Sponsored'}</span>
+                  ) : null}
+                </h3>
                 <p>
                   {place.suburb} · {place.type}
                 </p>
@@ -269,6 +274,14 @@ export function WhereToGoPage() {
               >
                 <Popup>
                   <strong>{place.name}</strong>
+                  {place.sponsored ? (
+                    <>
+                      <br />
+                      <span className="sponsored-popup-label">
+                        {place.sponsorLabel || 'Sponsored'}
+                      </span>
+                    </>
+                  ) : null}
                   <br />
                   {place.suburb}
                   <br />
