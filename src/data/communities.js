@@ -6,6 +6,8 @@ export const communities = [
     location: 'South Bank / UQ',
     meetingStyle: 'small group circles',
     interests: ['language exchange', 'study groups', 'cultural events'],
+    imageUrl:
+      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
     blurb:
       'Peer mentors host weekly low-pressure meetups for students adjusting to life in Australia.',
   },
@@ -16,6 +18,8 @@ export const communities = [
     location: 'West End',
     meetingStyle: 'hands-on workshops',
     interests: ['food', 'volunteering', 'cultural events'],
+    imageUrl:
+      'https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?auto=format&fit=crop&w=1200&q=80',
     blurb:
       'Cook together, share stories from home, and donate extra meals through local support groups.',
   },
@@ -26,6 +30,8 @@ export const communities = [
     location: 'Kelvin Grove',
     meetingStyle: 'drop-in studio sessions',
     interests: ['art', 'music', 'cultural events'],
+    imageUrl:
+      'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80',
     blurb:
       'A warm creative space where shy students can connect through low-pressure projects.',
   },
@@ -36,6 +42,8 @@ export const communities = [
     location: 'Queen Street / QUT',
     meetingStyle: 'guided networking pods',
     interests: ['career networking', 'study groups', 'language exchange'],
+    imageUrl:
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
     blurb:
       'Practice introductions, polish CVs, and meet mentors familiar with international pathways.',
   },
@@ -46,6 +54,8 @@ export const communities = [
     location: 'Kangaroo Point / St Lucia',
     meetingStyle: 'friendly drills + mixed teams',
     interests: ['sports', 'volunteering', 'cultural events'],
+    imageUrl:
+      'https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1200&q=80',
     blurb:
       'Designed for people who want movement and community without intense competition.',
   },
@@ -56,6 +66,8 @@ export const communities = [
     location: 'Local libraries',
     meetingStyle: 'tea circles and storytelling',
     interests: ['religion', 'cultural events', 'language exchange'],
+    imageUrl:
+      'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80',
     blurb:
       'Safe and respectful space to discuss values, identity, and practical life in Brisbane.',
   },

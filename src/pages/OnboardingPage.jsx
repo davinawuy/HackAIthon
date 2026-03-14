@@ -1,13 +1,53 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Chip } from '../components/Chip'
 import { CommunityCard } from '../components/CommunityCard'
 import { SectionTitle } from '../components/SectionTitle'
 import { communities } from '../data/communities'
 import { backgroundOptions, interestOptions } from '../data/events'
 
+const ONBOARDING_STORAGE_KEY = 'common-ground-onboarding-profile'
+
+function loadStoredProfile() {
+  if (typeof window === 'undefined') {
+    return {
+      selectedInterests: [],
+      selectedBackground: [],
+    }
+  }
+
+  try {
+    const stored = window.localStorage.getItem(ONBOARDING_STORAGE_KEY)
+    if (!stored) {
+      return {
+        selectedInterests: [],
+        selectedBackground: [],
+      }
+    }
+
+    const parsed = JSON.parse(stored)
+    return {
+      selectedInterests: Array.isArray(parsed.selectedInterests)
+        ? parsed.selectedInterests
+        : [],
+      selectedBackground: Array.isArray(parsed.selectedBackground)
+        ? parsed.selectedBackground
+        : [],
+    }
+  } catch {
+    return {
+      selectedInterests: [],
+      selectedBackground: [],
+    }
+  }
+}
+
 export function OnboardingPage() {
-  const [selectedInterests, setSelectedInterests] = useState([])
-  const [selectedBackground, setSelectedBackground] = useState([])
+  const [selectedInterests, setSelectedInterests] = useState(
+    () => loadStoredProfile().selectedInterests,
+  )
+  const [selectedBackground, setSelectedBackground] = useState(
+    () => loadStoredProfile().selectedBackground,
+  )
   const [status, setStatus] = useState('')
 
   function toggleOption(value, setState) {
@@ -39,8 +79,15 @@ export function OnboardingPage() {
     return matched.slice(0, 4)
   }, [selectedInterests])
 
+  useEffect(() => {
+    window.localStorage.setItem(
+      ONBOARDING_STORAGE_KEY,
+      JSON.stringify({ selectedInterests, selectedBackground }),
+    )
+  }, [selectedInterests, selectedBackground])
+
   function handleSaveProfile() {
-    setStatus('Comfort profile saved locally for this demo session.')
+    setStatus('Comfort profile saved locally and will stay after refresh.')
     window.setTimeout(() => setStatus(''), 3000)
   }
 

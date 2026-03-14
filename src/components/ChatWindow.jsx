@@ -1,8 +1,29 @@
 import { useEffect, useRef, useState } from 'react'
+import { aiLogoUrl } from '../assets/branding'
 import { findFaqResponse, starterBotMessages } from '../utils/chatUtils'
 import { answerChatQuestion } from '../lib/chat/service'
 import { Button } from './Button'
 import { Chip } from './Chip'
+
+const CHAT_STORAGE_KEY = 'common-ground-chat-history'
+
+function loadInitialMessages() {
+  if (typeof window === 'undefined') {
+    return starterBotMessages
+  }
+
+  try {
+    const stored = window.localStorage.getItem(CHAT_STORAGE_KEY)
+    if (!stored) {
+      return starterBotMessages
+    }
+
+    const parsed = JSON.parse(stored)
+    return Array.isArray(parsed) && parsed.length > 0 ? parsed : starterBotMessages
+  } catch {
+    return starterBotMessages
+  }
+}
 
 export function ChatWindow({ faqPrompts, quickQuestions, eventId }) {
   const [messages, setMessages] = useState(
@@ -56,6 +77,12 @@ export function ChatWindow({ faqPrompts, quickQuestions, eventId }) {
   function handleSubmit(event) {
     event.preventDefault()
     respondToQuestion(input)
+  }
+
+  function handleResetChat() {
+    setMessages(starterBotMessages)
+    setInput('')
+    setIsThinking(false)
   }
 
   return (

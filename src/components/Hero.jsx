@@ -1,6 +1,8 @@
 import { Button } from './Button'
 
-export function Hero({ highlights = [] }) {
+export function Hero({ highlights = [], visuals = [] }) {
+  const [primaryVisual, ...secondaryVisuals] = visuals
+
   return (
     <section className="hero-block" aria-labelledby="hero-title">
       <div className="hero-glow hero-glow-1" aria-hidden="true"></div>
@@ -11,7 +13,7 @@ export function Hero({ highlights = [] }) {
         <p className="hero-eyebrow">International Student Support MVP</p>
         <h1 id="hero-title">Feel at home in Australia, one meaningful meetup at a time.</h1>
         <p className="hero-description">
-          Cultural Buddy helps you understand social norms, discover trusted
+          Common Ground helps you understand social norms, discover trusted
           community events, and prepare conversation starters before you go.
         </p>
 
@@ -27,6 +29,22 @@ export function Hero({ highlights = [] }) {
             <li key={item}>{item}</li>
           ))}
         </ul>
+      </div>
+
+      <div className="hero-media" aria-label="Atmospheric visuals">
+        {primaryVisual ? (
+          <figure className="hero-media-primary">
+            <img src={primaryVisual.imageUrl} alt={primaryVisual.title} loading="eager" />
+          </figure>
+        ) : null}
+
+        <div className="hero-media-stack">
+          {secondaryVisuals.slice(0, 2).map((visual) => (
+            <figure key={visual.id} className="hero-media-secondary">
+              <img src={visual.imageUrl} alt={visual.title} loading="lazy" />
+            </figure>
+          ))}
+        </div>
       </div>
     </section>
   )
