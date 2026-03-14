@@ -9,7 +9,7 @@ const navItems = [
   { label: 'AI Buddy', to: '/chat' },
   { label: 'Events', to: '/events' },
   { label: 'Safety', to: '/safety' },
-  { label: 'Starters', to: '/starters' },
+  { label: 'Norms', to: '/starters' },
 ]
 
 export function Navbar() {
