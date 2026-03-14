@@ -53,6 +53,7 @@ export function LandingPage({ isBookmarked, onBookmarkToggle }) {
               icon={feature.icon}
               title={feature.title}
               description={feature.description}
+              to={feature.to}
             />
           ))}
         </div>
