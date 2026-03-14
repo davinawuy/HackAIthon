@@ -1156,6 +1156,114 @@ main {
   margin-top: 0.4rem;
 }
 
+.faq-video-divider {
+  margin-top: 2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--border);
+}
+
+.faq-video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.faq-video-header h2 {
+  font-size: 1.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.faq-video-header p {
+  color: var(--text-muted);
+  max-width: 66ch;
+}
+
+.faq-video-header small {
+  display: inline-block;
+  margin-top: 0.55rem;
+  color: var(--primary-deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.faq-video-controls {
+  display: flex;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+
+.faq-video-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-soft);
+}
+
+.faq-video-grid {
+  display: grid;
+  grid-auto-columns: minmax(220px, 260px);
+  grid-auto-flow: column;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.35rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.faq-video-card {
+  scroll-snap-align: start;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-glass);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.faq-video-frame {
+  position: relative;
+  padding-top: 158%;
+  background: #dfeaf4;
+}
+
+.faq-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.faq-video-copy {
+  padding: 0.8rem 0.85rem 0.9rem;
+}
+
+.faq-video-copy h3 {
+  font-size: 0.92rem;
+  margin-bottom: 0.22rem;
+  line-height: 1.3;
+}
+
+.faq-video-copy small {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--primary-deep);
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.faq-video-copy p {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
 .comfort-overview-grid {
   display: grid;
   gap: 0.9rem;
@@ -1708,6 +1816,11 @@ main {
 
   .norms-chat-callout,
   .norms-chat-copy {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .faq-video-header {
     align-items: flex-start;
     flex-direction: column;
   }
