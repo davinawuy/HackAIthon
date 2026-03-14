@@ -53,6 +53,7 @@ export const keyFeatures = [
     description:
       'Ask practical questions about local etiquette, university culture, and everyday social norms.',
     icon: 'chat',
+    to: '/chat',
   },
   {
     id: 'ft-2',
@@ -60,6 +61,7 @@ export const keyFeatures = [
     description:
       'Filter events by group size, comfort level, and safety tags before committing your time.',
     icon: 'shield',
+    to: '/events',
   },
   {
     id: 'ft-3',
@@ -67,6 +69,7 @@ export const keyFeatures = [
     description:
       'Get ready-to-use openers, polite phrases, and social tips tailored to each event type.',
     icon: 'spark',
+    to: '/starters',
   },
   {
     id: 'ft-4',
@@ -74,5 +77,6 @@ export const keyFeatures = [
     description:
       'Find culturally diverse clubs and city spaces where international students genuinely feel welcome.',
     icon: 'community',
+    to: '#communities',
   },
 ]
