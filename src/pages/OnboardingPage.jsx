@@ -41,6 +41,41 @@ function loadStoredProfile() {
   }
 }
 
+function formatList(items) {
+  if (items.length === 0) return ''
+  if (items.length === 1) return items[0]
+  if (items.length === 2) return `${items[0]} and ${items[1]}`
+  return `${items.slice(0, -1).join(', ')}, and ${items.at(-1)}`
+}
+
+function buildPreferenceSummary(selectedBackground) {
+  if (selectedBackground.includes('wants small groups')) {
+    return 'Prefers smaller, lower-pressure social settings.'
+  }
+
+  if (selectedBackground.includes('shy / introvert')) {
+    return 'Would benefit from gentler, lower-pressure introductions.'
+  }
+
+  if (selectedBackground.includes('looking for friends')) {
+    return 'Looking for easier ways to build connection and familiarity.'
+  }
+
+  if (selectedBackground.includes('new to Australia')) {
+    return 'Adjusting to local routines and norms is an important priority.'
+  }
+
+  if (selectedBackground.includes('first semester')) {
+    return 'Needs a smoother first-semester landing and clearer guidance.'
+  }
+
+  if (selectedBackground.includes('wants family-friendly events')) {
+    return 'Prefers social options that feel practical and family-friendly.'
+  }
+
+  return 'Add a few background preferences to refine the social pace.'
+}
+
 export function OnboardingPage() {
   const [selectedInterests, setSelectedInterests] = useState(
     () => loadStoredProfile().selectedInterests,
@@ -57,6 +92,10 @@ export function OnboardingPage() {
         : [...current, value],
     )
   }
+
+  const totalSelections = selectedInterests.length + selectedBackground.length
+  const progressValue = Math.min(totalSelections, 6)
+  const isProfileReady = totalSelections > 0
 
   const recommendedCommunities = useMemo(() => {
     if (selectedInterests.length === 0) {
@@ -79,6 +118,12 @@ export function OnboardingPage() {
     return matched.slice(0, 4)
   }, [selectedInterests])
 
+  const interestSummary = selectedInterests.length
+    ? `Interested in ${formatList(selectedInterests)}.`
+    : 'Select a few interests to shape your recommendations.'
+
+  const backgroundSummary = buildPreferenceSummary(selectedBackground)
+
   useEffect(() => {
     window.localStorage.setItem(
       ONBOARDING_STORAGE_KEY,
@@ -87,6 +132,7 @@ export function OnboardingPage() {
   }, [selectedInterests, selectedBackground])
 
   function handleSaveProfile() {
+    if (!isProfileReady) return
     setStatus('Comfort profile saved locally and will stay after refresh.')
     window.setTimeout(() => setStatus(''), 3000)
   }
@@ -100,51 +146,125 @@ export function OnboardingPage() {
         level="h1"
       />
 
-      <div className="onboarding-layout">
-        <article className="onboarding-panel">
-          <h3>Select interests</h3>
-          <p>Pick as many as you like.</p>
-          <div className="chip-group">
-            {interestOptions.map((option) => (
-              <Chip
-                key={option}
-                label={option}
-                selected={selectedInterests.includes(option)}
-                onClick={() => toggleOption(option, setSelectedInterests)}
-              />
+      <section className="onboarding-shell">
+        <div className="onboarding-shell-header">
+          <div>
+            <span className="onboarding-progress-label">Comfort profile</span>
+            <h2>Set up your preferences</h2>
+            <p>
+              Start with the interests you care about most, then add a few background
+              preferences so recommendations feel more manageable and relevant.
+            </p>
+          </div>
+
+          <div className="onboarding-progress-card" aria-label="Onboarding progress">
+            <div className="onboarding-progress-topline">
+              <strong>{totalSelections}</strong>
+              <span>choices selected</span>
+            </div>
+            <div className="onboarding-progress-track" aria-hidden="true">
+              <span style={{ width: `${(progressValue / 6) * 100}%` }} />
+            </div>
+            <small>{isProfileReady ? 'You have enough to personalize results.' : 'Pick a few options to get started.'}</small>
+          </div>
+        </div>
+
+        <div className="onboarding-layout">
+          <article className="onboarding-panel onboarding-panel-primary">
+            <div className="onboarding-panel-head">
+              <div>
+                <span className="onboarding-panel-kicker">Primary step</span>
+                <h3>Select interests</h3>
+              </div>
+              <span className="onboarding-count-pill">
+                {selectedInterests.length} selected
+              </span>
+            </div>
+            <p>Pick the topics and activities you want the app to prioritize.</p>
+            <div className="chip-group onboarding-chip-group">
+              {interestOptions.map((option) => (
+                <Chip
+                  key={option}
+                  label={`${selectedInterests.includes(option) ? '✓ ' : ''}${option}`}
+                  selected={selectedInterests.includes(option)}
+                  onClick={() => toggleOption(option, setSelectedInterests)}
+                  className="onboarding-chip"
+                />
+              ))}
+            </div>
+          </article>
+
+          <article className="onboarding-panel onboarding-panel-secondary">
+            <div className="onboarding-panel-head">
+              <div>
+                <span className="onboarding-panel-kicker">Optional tuning</span>
+                <h3>Background preferences</h3>
+              </div>
+              <span className="onboarding-count-pill">
+                {selectedBackground.length} selected
+              </span>
+            </div>
+            <p>Help us tune comfort level, social pace, and the type of spaces to suggest.</p>
+            <div className="chip-group onboarding-chip-group">
+              {backgroundOptions.map((option) => (
+                <Chip
+                  key={option}
+                  label={`${selectedBackground.includes(option) ? '✓ ' : ''}${option}`}
+                  selected={selectedBackground.includes(option)}
+                  onClick={() => toggleOption(option, setSelectedBackground)}
+                  className="onboarding-chip onboarding-chip-secondary"
+                />
+              ))}
+            </div>
+          </article>
+        </div>
+
+        <article className="profile-summary onboarding-profile-preview">
+          <div className="profile-summary-head">
+            <div>
+              <span className="onboarding-panel-kicker">Live preview</span>
+              <h3>Your comfort profile</h3>
+            </div>
+            <div className="profile-summary-stats">
+              <span>{selectedInterests.length} interests</span>
+              <span>{selectedBackground.length} preferences</span>
+            </div>
+          </div>
+
+          <div className="profile-summary-copy">
+            <p>{interestSummary}</p>
+            <p>{backgroundSummary}</p>
+          </div>
+
+          <div className="profile-summary-tags" aria-label="Selected profile tags">
+            {selectedInterests.slice(0, 4).map((item) => (
+              <span key={item} className="profile-mini-pill">
+                {item}
+              </span>
             ))}
+            {selectedBackground.slice(0, 3).map((item) => (
+              <span key={item} className="profile-mini-pill is-muted">
+                {item}
+              </span>
+            ))}
+            {!isProfileReady ? (
+              <span className="profile-mini-pill is-empty">Nothing selected yet</span>
+            ) : null}
+          </div>
+
+          <div className="profile-summary-actions">
+            <button
+              type="button"
+              className="btn btn-primary btn-sm"
+              onClick={handleSaveProfile}
+              disabled={!isProfileReady}
+            >
+              Save Profile
+            </button>
+            {status ? <p className="status-text">{status}</p> : null}
           </div>
         </article>
-
-        <article className="onboarding-panel">
-          <h3>Background preferences</h3>
-          <p>Help us tune comfort and social pace.</p>
-          <div className="chip-group">
-            {backgroundOptions.map((option) => (
-              <Chip
-                key={option}
-                label={option}
-                selected={selectedBackground.includes(option)}
-                onClick={() => toggleOption(option, setSelectedBackground)}
-              />
-            ))}
-          </div>
-        </article>
-      </div>
-
-      <article className="profile-summary">
-        <h3>Your comfort profile</h3>
-        <p>
-          Interests selected: <strong>{selectedInterests.length}</strong>
-        </p>
-        <p>
-          Background flags: <strong>{selectedBackground.length}</strong>
-        </p>
-        <button type="button" className="btn btn-primary btn-sm" onClick={handleSaveProfile}>
-          Save Profile
-        </button>
-        {status ? <p className="status-text">{status}</p> : null}
-      </article>
+      </section>
 
       <section className="page-section no-top-pad">
         <SectionTitle
