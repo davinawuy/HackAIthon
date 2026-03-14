@@ -6,7 +6,11 @@ export async function answerChatQuestion(userMessage, eventId) {
   const validation = validateChatInput(userMessage)
 
   if (!validation.ok) {
-    return validation.reason
+    return {
+      answer: validation.reason,
+      showEvents: false,
+      events: [],
+    }
   }
 
   const apiKey = import.meta.env.VITE_GEMINI_API_KEY
@@ -27,15 +31,31 @@ export async function answerChatQuestion(userMessage, eventId) {
       contents: prompt,
     })
 
-    const answer = response.text?.trim()
+    const text = response.text?.trim()
 
-    if (!answer) {
-      return 'Sorry, I couldn’t generate a response right now.'
+    if (!text) {
+      return {
+        answer: 'Sorry, I couldn’t generate a response right now.',
+        showEvents: false,
+        events: [],
+      }
     }
 
-    return answer
+    const parsed = JSON.parse(text)
+
+    return {
+      answer: parsed.answer || 'Sorry, I could not understand that.',
+      showEvents: Boolean(parsed.showEvents),
+      events: Array.isArray(parsed.events) ? parsed.events : [],
+    }
   } catch (error) {
     console.error('Gemini error:', error)
-    throw new Error('Gemini request failed')
+
+    return {
+      answer:
+        'Sorry, I had trouble answering that. Try asking about living in Australia, local culture, or events.',
+      showEvents: false,
+      events: [],
+    }
   }
 }

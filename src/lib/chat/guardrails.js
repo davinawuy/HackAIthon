@@ -1,12 +1,17 @@
-const blockedTopics = [
-  'self-harm',
-  'suicide',
-  'kill',
-  'bomb',
-  'terror',
-  'hate',
-  'racist',
-  'violence',
+const disallowedPatterns = [
+  'solve this math',
+  'math question',
+  'calculate',
+  'equation',
+  'code this',
+  'write code',
+  'python code',
+  'javascript code',
+  'java code',
+  'c++',
+  'debug this',
+  'physics question',
+  'chemistry question',
 ]
 
 export function validateChatInput(input) {
@@ -22,11 +27,12 @@ export function validateChatInput(input) {
 
   const lower = text.toLowerCase()
 
-  for (const word of blockedTopics) {
-    if (lower.includes(word)) {
+  for (const pattern of disallowedPatterns) {
+    if (lower.includes(pattern)) {
       return {
         ok: false,
-        reason: "I can’t help with that request.",
+        reason:
+          "I’m Informative Ibis, so I can only help with living in Australia, newcomer support, culture, and related events.",
       }
     }
   }
