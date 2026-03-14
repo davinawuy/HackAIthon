@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { EventCard } from '../components/EventCard'
 import { FilterBar } from '../components/FilterBar'
 import { SectionTitle } from '../components/SectionTitle'
@@ -20,6 +21,9 @@ export function EventsPage({ bookmarks, isBookmarked, onBookmarkToggle }) {
   const [isLoading, setIsLoading] = useState(false)
   const [showSavedOnly, setShowSavedOnly] = useState(false)
   const loadingTimerRef = useRef(null)
+  const [searchParams] = useSearchParams()
+
+  const highlightedEventId = searchParams.get('eventId') || ''
 
   const filteredEvents = useMemo(
     () => applyEventFilters(events, filters),
@@ -47,6 +51,33 @@ export function EventsPage({ bookmarks, isBookmarked, onBookmarkToggle }) {
     },
     [],
   )
+
+  useEffect(() => {
+    if (!highlightedEventId) return
+
+    const targetEvent = events.find((event) => event.id === highlightedEventId)
+    if (!targetEvent) return
+
+    setShowSavedOnly(false)
+    setFilters({
+      ...defaultFilters,
+      search: targetEvent.title,
+    })
+  }, [highlightedEventId])
+
+  useEffect(() => {
+    if (!highlightedEventId || isLoading) return
+    if (!visibleEvents.some((event) => event.id === highlightedEventId)) return
+
+    const scrollTimer = window.setTimeout(() => {
+      const targetCard = document.getElementById(`event-${highlightedEventId}`)
+      targetCard?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }, 120)
+
+    return () => {
+      window.clearTimeout(scrollTimer)
+    }
+  }, [highlightedEventId, isLoading, visibleEvents])
 
   function applyFiltersWithLoading(nextFilters) {
     if (loadingTimerRef.current) {
@@ -128,6 +159,7 @@ export function EventsPage({ bookmarks, isBookmarked, onBookmarkToggle }) {
               event={event}
               isBookmarked={isBookmarked(event.id)}
               onBookmarkToggle={onBookmarkToggle}
+              isHighlighted={event.id === highlightedEventId}
             />
           ))}
         </div>
