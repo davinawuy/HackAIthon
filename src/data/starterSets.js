@@ -1,170 +1,218 @@
 export const starterSets = [
   {
-    id: 'st-001',
-    title: 'First Meetup Warm-Up',
-    matchType: 'social meetup',
-    matchTags: ['newcomer friendly', 'small group'],
-    starters: [
-      'Hi, is this your first time at this meetup too?',
-      'What brought you to this event today?',
-      'Have you found any good student spots nearby?',
-      'I am still new in Brisbane, any weekend recommendations?',
+    id: 'norm-001',
+    title: 'Escalators',
+    summary: 'Stand to one side so anyone in a rush can walk past.',
+    sections: [
+      {
+        heading: 'What Locals Expect',
+        items: [
+          'Stand on one side if you are staying still.',
+          'Leave the other side clear for people walking past.',
+        ],
+      },
+      {
+        heading: 'Why It Matters',
+        items: [
+          'Busy stations and shopping centres move quickly during peak hours.',
+          'Blocking the full escalator feels inconsiderate to commuters behind you.',
+        ],
+      },
+      {
+        heading: 'Easy Rule',
+        items: [
+          'If you are not walking, keep left and hold your bag close.',
+        ],
+      },
     ],
-    politePhrases: ['Would you mind if I join this group?', 'Thanks, that is really helpful.'],
-    socialTips: ['Start with one person, then widen the circle.', 'Smile and keep your first question simple.'],
   },
   {
-    id: 'st-002',
-    title: 'Food Event Starters',
-    matchType: 'market',
-    matchTags: ['free food'],
-    starters: [
-      'That looks great, have you tried this stall before?',
-      'Do you have a favourite affordable food place in Brisbane?',
-      'I am collecting picnic ideas, what should I try?',
-      'Is there a market you recommend for fresh produce?',
+    id: 'norm-002',
+    title: 'Supermarket Checkout',
+    summary: 'Keep your bag ready and pack smoothly instead of stopping the line.',
+    sections: [
+      {
+        heading: 'What Locals Expect',
+        items: [
+          'Have your bags open and ready before scanning starts.',
+          'Pack as items come through instead of reorganising everything mid-line.',
+        ],
+      },
+      {
+        heading: 'Why It Matters',
+        items: [
+          'Checkout lines move fast, especially at self-checkout.',
+          'Repeatedly lifting bags in and out of the trolley slows everyone behind you.',
+        ],
+      },
+      {
+        heading: 'Easy Rule',
+        items: [
+          'Place your bag where you can pack directly as each item is scanned.',
+        ],
+      },
     ],
-    politePhrases: ['Could I ask what you ordered?', 'I appreciate the suggestion, thank you.'],
-    socialTips: ['Comment on shared context like food or queue.', 'Offer to swap recommendations to keep it mutual.'],
   },
   {
-    id: 'st-003',
-    title: 'Sports Session Openers',
-    matchType: 'sports',
-    matchTags: ['beginner friendly'],
-    starters: [
-      'I am still learning the rules, is this drill beginner friendly?',
-      'Do you usually play here or at another campus?',
-      'Would you like to pair up for warm-up?',
-      'Any tips for first-timers joining social sports in Brisbane?',
+    id: 'norm-003',
+    title: 'Buses and Trains',
+    summary: 'Be ready to tap on or off quickly and avoid blocking the doorway.',
+    sections: [
+      {
+        heading: 'What Locals Expect',
+        items: [
+          'Have your card or phone ready before you reach the reader.',
+          'Move away from the door once you are on board.',
+        ],
+      },
+      {
+        heading: 'Why It Matters',
+        items: [
+          'People behind you are usually trying to keep the line moving.',
+          'Stopping in the doorway creates a bottleneck immediately.',
+        ],
+      },
+      {
+        heading: 'Easy Rule',
+        items: [
+          'Prepare your tap before the gate or bus step, not after.',
+        ],
+      },
     ],
-    politePhrases: ['Thanks for helping me get started.', 'Please let me know if I am doing this correctly.'],
-    socialTips: ['Ask for one small tip, people enjoy helping.', 'Use names after introductions to build rapport.'],
   },
   {
-    id: 'st-004',
-    title: 'Career Networking Icebreakers',
-    matchType: 'career',
-    matchTags: ['career'],
-    starters: [
-      'Hi, what are you studying and what role interests you most?',
-      'Have you discovered any internship programs worth applying for?',
-      'What is one networking tip that worked for you in Australia?',
-      'Would you like to exchange LinkedIn profiles?',
+    id: 'norm-004',
+    title: 'Thanking the Driver',
+    summary: 'A quick thank you when leaving a bus is common and polite.',
+    sections: [
+      {
+        heading: 'What Locals Expect',
+        items: [
+          'Many students say “thanks” or “thank you” as they get off.',
+          'It is more common on buses than on trains.',
+        ],
+      },
+      {
+        heading: 'Why It Matters',
+        items: [
+          'It is a small social norm that signals courtesy.',
+          'You do not need a full conversation, just a quick acknowledgment.',
+        ],
+      },
+      {
+        heading: 'Easy Rule',
+        items: [
+          'If you leave near the front or the driver can hear you, a quick thanks is enough.',
+        ],
+      },
     ],
-    politePhrases: ['It was great meeting you.', 'Would it be okay if I connect with you online?'],
-    socialTips: ['Keep your intro under 20 seconds.', 'Ask one question before talking about yourself.'],
   },
   {
-    id: 'st-005',
-    title: 'Study Group Connectors',
-    matchType: 'study',
-    matchTags: ['quiet zone'],
-    starters: [
-      'Which subject are you focusing on today?',
-      'Do you want to do a short 25-minute study sprint together?',
-      'Have you found a good exam prep strategy this semester?',
-      'Would you like to share notes after this session?',
+    id: 'norm-005',
+    title: 'Queues',
+    summary: 'Leave a bit of space and wait your turn without crowding people.',
+    sections: [
+      {
+        heading: 'What Locals Expect',
+        items: [
+          'Stand in a clear line and keep a small gap from the person ahead.',
+          'Do not drift sideways as if you are making a second line.',
+        ],
+      },
+      {
+        heading: 'Why It Matters',
+        items: [
+          'Personal space matters more than some newcomers expect.',
+          'Standing too close can feel pushy, even if you do not mean it that way.',
+        ],
+      },
+      {
+        heading: 'Easy Rule',
+        items: [
+          'Stay roughly one small step behind the next person unless the line moves.',
+        ],
+      },
     ],
-    politePhrases: ['No pressure if you prefer to study solo.', 'Thanks for sharing your approach.'],
-    socialTips: ['Respect quiet zones and keep voice low.', 'Suggest a clear mini-plan to reduce awkwardness.'],
   },
   {
-    id: 'st-006',
-    title: 'Volunteering Team Talk',
-    matchType: 'volunteering',
-    matchTags: ['public space'],
-    starters: [
-      'How did you hear about this volunteering event?',
-      'Do you join community projects often?',
-      'What is your favourite thing about living in Brisbane so far?',
-      'Would you like to team up for the next task?',
+    id: 'norm-006',
+    title: 'Lifts and Doorways',
+    summary: 'Let people out first before you move in.',
+    sections: [
+      {
+        heading: 'What Locals Expect',
+        items: [
+          'Pause at the side of the lift or doorway so others can exit first.',
+          'Enter only after the path is clear.',
+        ],
+      },
+      {
+        heading: 'Why It Matters',
+        items: [
+          'This keeps movement smooth in campus buildings and shopping centres.',
+          'Trying to enter before people exit feels abrupt and inefficient.',
+        ],
+      },
+      {
+        heading: 'Easy Rule',
+        items: [
+          'Out first, then in.',
+        ],
+      },
     ],
-    politePhrases: ['Happy to help wherever needed.', 'Let me know if I can support your section.'],
-    socialTips: ['Compliment teamwork and contribution.', 'Offer practical help to build connection quickly.'],
   },
   {
-    id: 'st-007',
-    title: 'Arts and Culture Chats',
-    matchType: 'arts & culture',
-    matchTags: ['family friendly'],
-    starters: [
-      'Which part of this exhibition or performance stood out to you?',
-      'Do you know other cultural events around South Brisbane?',
-      'I am exploring local art spaces, any favourites?',
-      'Would you like to walk through the next section together?',
+    id: 'norm-007',
+    title: 'Uni Names and Emails',
+    summary: 'Australian university culture is usually friendly, but start slightly formal if unsure.',
+    sections: [
+      {
+        heading: 'What Locals Expect',
+        items: [
+          'Many tutors and lecturers are fine with first names.',
+          'Email tone is often polite but less formal than in some countries.',
+        ],
+      },
+      {
+        heading: 'Why It Matters',
+        items: [
+          'Overly formal language is not offensive, but it can sound distant.',
+          'Starting too casually before you know the norm can also feel off.',
+        ],
+      },
+      {
+        heading: 'Easy Rule',
+        items: [
+          'Start with “Hi Dr...” or “Hi Professor...” and follow how they sign off.',
+        ],
+      },
     ],
-    politePhrases: ['That is a thoughtful perspective.', 'Thanks for sharing your view.'],
-    socialTips: ['React to something visible around you.', 'Use curiosity, not debate, for first conversations.'],
   },
   {
-    id: 'st-008',
-    title: 'Language Exchange Prompts',
-    matchType: 'social meetup',
-    matchTags: ['english practice'],
-    starters: [
-      'What language are you hoping to practice today?',
-      'Do you want to do ten minutes English and ten minutes your language?',
-      'What Australian phrase confused you this week?',
-      'What is one phrase from your language that has no direct translation?',
+    id: 'norm-008',
+    title: 'Small Social Phrases',
+    summary: 'Short phrases like “no worries” and “all good” are often just friendly reassurance.',
+    sections: [
+      {
+        heading: 'What Locals Expect',
+        items: [
+          '“No worries” often means it is fine or you are welcome.',
+          '“All good” usually means there is no problem.',
+        ],
+      },
+      {
+        heading: 'Why It Matters',
+        items: [
+          'These phrases are relaxed and common in daily Brisbane conversation.',
+          'They usually sound warmer than literal translations suggest.',
+        ],
+      },
+      {
+        heading: 'Easy Rule',
+        items: [
+          'Treat them as calm, friendly responses rather than deep statements.',
+        ],
+      },
     ],
-    politePhrases: ['Please correct my pronunciation if needed.', 'I really appreciate your patience.'],
-    socialTips: ['Keep exchanges balanced so both people practice.', 'Repeat new words in a sentence to remember them.'],
-  },
-  {
-    id: 'st-009',
-    title: 'Family-Friendly Event Openers',
-    matchType: 'social meetup',
-    matchTags: ['family friendly'],
-    starters: [
-      'Have you found any good family-friendly spots in Brisbane?',
-      'Do you know activities for weekends with kids?',
-      'Which suburb feels most convenient for family life?',
-      'Would you like to share school or childcare tips?',
-    ],
-    politePhrases: ['That is really useful, thank you for sharing.', 'Hope your family settles in smoothly.'],
-    socialTips: ['Respect personal boundaries around family topics.', 'Share one practical tip before asking another question.'],
-  },
-  {
-    id: 'st-010',
-    title: 'Small Group Confidence Pack',
-    matchType: 'workshop',
-    matchTags: ['small group'],
-    starters: [
-      'Hi, I am new here. Mind if I sit with this group?',
-      'What made you choose this workshop?',
-      'Have you tried any similar events before?',
-      'Would you like to exchange tips after the session?',
-    ],
-    politePhrases: ['Thanks for making this easy to join.', 'I appreciate your warm welcome.'],
-    socialTips: ['Introduce yourself once, then ask a question.', 'Use names naturally to make conversations feel personal.'],
-  },
-  {
-    id: 'st-011',
-    title: 'Large Crowd Survival Starters',
-    matchType: 'social meetup',
-    matchTags: ['student led'],
-    starters: [
-      'This event is lively. Have you been here before?',
-      'Do you want to find a quieter corner to chat?',
-      'Which part of the program are you most interested in?',
-      'Are you also studying nearby, or visiting from another campus?',
-    ],
-    politePhrases: ['Nice meeting you, I am going to refill water and come back.', 'Would it help if we joined that group together?'],
-    socialTips: ['Stand near edges if big crowds feel intense.', 'Set a time limit so you stay in control.'],
-  },
-  {
-    id: 'st-012',
-    title: 'General Friendly Openers',
-    matchType: 'all',
-    matchTags: [],
-    starters: [
-      'Hi, I am new to this community. How has your experience been?',
-      'What is one thing you wish you knew in your first semester?',
-      'Do you have a favourite quiet place to study around the city?',
-      'Would you recommend any newcomer-friendly clubs?',
-    ],
-    politePhrases: ['Thanks, that gives me confidence.', 'It was great chatting with you.'],
-    socialTips: ['Keep your first interaction brief and positive.', 'Follow up with a simple, practical question.'],
   },
 ]
