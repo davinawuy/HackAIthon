@@ -10,6 +10,7 @@ import { categories, cultureTags, featuredEvents, events, trendingEvents } from 
 import { normalize } from "@/lib/utils";
 import { Badge } from "@/components/ui/Badge";
 import { Sparkles, Flame } from "lucide-react";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 
 const categoryOptions = ["All", ...categories];
 const cultureOptions = ["All", ...cultureTags];
@@ -119,6 +120,16 @@ export function ExploreClient() {
             ))}
           </motion.div>
         )}
+      </section>
+      <section className="space-y-4">
+        <div>
+          <h2 className="text-2xl font-semibold text-white">Ask the Culture Assistant</h2>
+          <p className="mt-2 text-sm text-slate-300">
+            Get help finding beginner-friendly events, family-friendly options, accessibility info, and cultural etiquette.
+          </p>
+        </div>
+
+        <ChatWidget />
       </section>
     </div>
   );
