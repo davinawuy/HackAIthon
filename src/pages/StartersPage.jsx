@@ -1,99 +1,64 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
+import { aiLogoUrl } from '../assets/branding'
+import { Button } from '../components/Button'
 import { SectionTitle } from '../components/SectionTitle'
 import { StarterCard } from '../components/StarterCard'
-import { events } from '../data/events'
 import { starterSets } from '../data/starterSets'
 
-function matchStarterSets(event) {
-  return starterSets
-    .map((set) => {
-      let score = 0
-
-      if (set.matchType === 'all') {
-        score += 1
-      }
-
-      if (set.matchType === event.type) {
-        score += 3
-      }
-
-      if (set.matchTags.length === 0) {
-        score += 1
-      }
-
-      const tagMatches = set.matchTags.filter((tag) => event.tags.includes(tag)).length
-      score += tagMatches * 2
-
-      return {
-        set,
-        score,
-      }
-    })
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .map((item) => item.set)
-}
-
 export function StartersPage() {
-  const [selectedEventId, setSelectedEventId] = useState(events[0].id)
-
-  const selectedEvent = useMemo(
-    () => events.find((item) => item.id === selectedEventId) || events[0],
-    [selectedEventId],
-  )
-
-  const matchedSets = useMemo(
-    () => matchStarterSets(selectedEvent).slice(0, 3),
-    [selectedEvent],
-  )
+  const [expandedCardId, setExpandedCardId] = useState(null)
 
   return (
     <section className="container page-section">
       <SectionTitle
-        eyebrow="Conversation Starter Generator"
-        title="Practice what to say before you go"
-        description="Pick an event to generate social openers, polite phrases, and practical tips for smoother conversations."
+        eyebrow="Brisbane Norms Guide"
+        title="Norms"
+        description="Common local habits students often miss at first, from escalators and checkout flow to transport manners and uni culture."
         level="h1"
       />
 
       <article className="starter-selector">
-        <label htmlFor="event-picker">Select an event</label>
-        <select
-          id="event-picker"
-          value={selectedEventId}
-          onChange={(event) => setSelectedEventId(event.target.value)}
-        >
-          {events.map((item) => (
-            <option key={item.id} value={item.id}>
-              {item.title}
-            </option>
-          ))}
-        </select>
-
+        <label>What this page covers</label>
         <p>
-          <strong>{selectedEvent.title}</strong> · {selectedEvent.location} ·{' '}
-          {selectedEvent.date} at {selectedEvent.time}
+          These are small local habits that can feel unclear when you first arrive.
+          They are not strict rules, but knowing them helps daily life feel smoother.
         </p>
       </article>
 
-      {matchedSets.length > 0 ? (
-        <div className="starter-grid">
-          {matchedSets.map((set) => (
-            <StarterCard
-              key={set.id}
-              title={set.title}
-              starters={set.starters}
-              politePhrases={set.politePhrases}
-              socialTips={set.socialTips}
-            />
-          ))}
+      <article className="norms-chat-callout">
+        <div className="norms-chat-copy">
+          <img src={aiLogoUrl} alt="Informative Ibis" className="norms-chat-avatar" />
+          <div>
+            <h3>Still unsure about a local habit?</h3>
+            <p>
+              Ask Informative Ibis for a quick explanation if you want more detail
+              about Brisbane etiquette, transport, checkout, uni culture, or other
+              everyday norms.
+            </p>
+          </div>
         </div>
-      ) : (
-        <article className="empty-state">
-          <h3>No tailored starter pack found</h3>
-          <p>Try another event to generate targeted conversation prompts.</p>
-        </article>
-      )}
+
+        <Button to="/chat" variant="primary" size="sm">
+          Ask Informative Ibis
+        </Button>
+      </article>
+
+      <div className="starter-grid">
+        {starterSets.map((set) => (
+          <StarterCard
+            key={set.id}
+            title={set.title}
+            summary={set.summary}
+            sections={set.sections}
+            helpfulCount={set.helpfulCount}
+            expanded={expandedCardId === set.id}
+            onExpand={() => setExpandedCardId(set.id)}
+            onCollapse={() =>
+              setExpandedCardId((current) => (current === set.id ? null : current))
+            }
+          />
+        ))}
+      </div>
     </section>
   )
 }

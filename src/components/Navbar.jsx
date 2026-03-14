@@ -11,7 +11,7 @@ const navItems = [
   { label: 'AI Map', to: '/where-to-go' },
   { label: 'Events', to: '/events' },
   { label: 'Safety', to: '/safety' },
-  { label: 'Starters', to: '/starters' },
+  { label: 'Norms', to: '/starters' },
 ]
 
 const inboxMessages = [
