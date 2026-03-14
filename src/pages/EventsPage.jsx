@@ -18,6 +18,7 @@ const defaultFilters = {
 export function EventsPage({ bookmarks, isBookmarked, onBookmarkToggle }) {
   const [filters, setFilters] = useState(defaultFilters)
   const [isLoading, setIsLoading] = useState(false)
+  const [showSavedOnly, setShowSavedOnly] = useState(false)
   const loadingTimerRef = useRef(null)
 
   const filteredEvents = useMemo(
@@ -29,6 +30,14 @@ export function EventsPage({ bookmarks, isBookmarked, onBookmarkToggle }) {
     () => events.filter((event) => featuredEventIds.includes(event.id)),
     [],
   )
+
+  const visibleEvents = useMemo(() => {
+    if (!showSavedOnly) {
+      return filteredEvents
+    }
+
+    return filteredEvents.filter((event) => bookmarks.includes(event.id))
+  }, [bookmarks, filteredEvents, showSavedOnly])
 
   useEffect(
     () => () => {
@@ -71,9 +80,15 @@ export function EventsPage({ bookmarks, isBookmarked, onBookmarkToggle }) {
       />
 
       <article className="saved-counter">
-        <p>
-          Saved events: <strong>{bookmarks.length}</strong>
-        </p>
+        <p>Saved events: <strong>{bookmarks.length}</strong></p>
+        <button
+          type="button"
+          className={`chip ${showSavedOnly ? 'is-selected' : ''}`}
+          onClick={() => setShowSavedOnly((current) => !current)}
+          aria-pressed={showSavedOnly}
+        >
+          {showSavedOnly ? 'Showing saved only' : 'Show saved only'}
+        </button>
       </article>
 
       <section className="mobile-carousel" aria-label="Featured event carousel">
@@ -105,9 +120,9 @@ export function EventsPage({ bookmarks, isBookmarked, onBookmarkToggle }) {
             <SkeletonCard key={`skeleton-${index}`} />
           ))}
         </div>
-      ) : filteredEvents.length > 0 ? (
+      ) : visibleEvents.length > 0 ? (
         <div className="events-grid">
-          {filteredEvents.map((event) => (
+          {visibleEvents.map((event) => (
             <EventCard
               key={event.id}
               event={event}
@@ -118,8 +133,12 @@ export function EventsPage({ bookmarks, isBookmarked, onBookmarkToggle }) {
         </div>
       ) : (
         <article className="empty-state">
-          <h3>No events match these filters yet</h3>
-          <p>Try broadening the date range or selecting fewer tags.</p>
+          <h3>{showSavedOnly ? 'No saved events in this filter set' : 'No events match these filters yet'}</h3>
+          <p>
+            {showSavedOnly
+              ? 'Turn off saved-only mode or save events from the list to see them here.'
+              : 'Try broadening the date range or selecting fewer tags.'}
+          </p>
           <button type="button" className="btn btn-secondary btn-sm" onClick={resetFilters}>
             Reset to default
           </button>

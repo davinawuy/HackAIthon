@@ -4,7 +4,7 @@ export const testimonials = [
     name: 'Lina Wibowo',
     country: 'Indonesia',
     university: 'QUT',
-    text: 'Cultural Buddy helped me choose small events first. I felt less anxious and now I host my own weekend study circle.',
+    text: 'Common Ground helped me choose small events first. I felt less anxious and now I host my own weekend study circle.',
   },
   {
     id: 'tm-002',
@@ -67,6 +67,6 @@ export const testimonials = [
     name: 'Samuel Boateng',
     country: 'Ghana',
     university: 'UQ',
-    text: 'Cultural Buddy feels like Brisbane city services met startup quality. Clear layout, useful safety context, great mobile UX.',
+    text: 'Common Ground feels like Brisbane city services met startup quality. Clear layout, useful safety context, great mobile UX.',
   },
 ]

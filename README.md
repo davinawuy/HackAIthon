@@ -1,6 +1,6 @@
-# Cultural Buddy MVP (React + Vite)
+# Common Ground MVP (React + Vite)
 
-Cultural Buddy is a fully responsive React website MVP for international students in Australia.
+Common Ground is a fully responsive React website MVP for international students in Australia.
 It helps users understand Australian social culture, discover community events, evaluate comfort/safety context, and prepare conversation starters before attending.
 
 ## Design Intent
