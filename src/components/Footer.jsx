@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div>
-          <h3>Cultural Buddy</h3>
+          <h3>Common Ground</h3>
           <p>
             An MVP for international students to explore Brisbane culture with
             confidence, safety, and community warmth.
@@ -33,7 +33,7 @@ export function Footer() {
         <div>
           <h4>City Spaces</h4>
           <p>South Bank, West End, St Lucia, Kelvin Grove, and more.</p>
-          <p className="footer-note">Built for hackathon demo use.</p>
+          <p className="footer-note">Built as a hackathon-ready MVP demo.</p>
         </div>
       </div>
     </footer>

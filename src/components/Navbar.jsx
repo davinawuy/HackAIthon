@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { commonGroundLogoUrl } from '../assets/branding'
 
 const navItems = [
   { label: 'Home', to: '/' },
@@ -16,13 +17,13 @@ export function Navbar() {
   return (
     <header className="site-header" id="top">
       <nav className="navbar container" aria-label="Primary">
-        <Link to="/" className="brand-link" aria-label="Cultural Buddy home">
+        <Link to="/" className="brand-link" aria-label="Common Ground home">
           <span className="brand-mark" aria-hidden="true">
-            CB
+            <img src={commonGroundLogoUrl} alt="" className="brand-logo" loading="lazy" />
           </span>
           <span className="brand-copy">
-            <strong>Cultural Buddy</strong>
-            <small>Brisbane Student Life</small>
+            <strong>Common Ground</strong>
+            <small>Brisbane Student Life Hub</small>
           </span>
         </Link>
 

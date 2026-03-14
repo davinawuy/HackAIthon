@@ -11,7 +11,7 @@ export function Hero({ highlights = [] }) {
         <p className="hero-eyebrow">International Student Support MVP</p>
         <h1 id="hero-title">Feel at home in Australia, one meaningful meetup at a time.</h1>
         <p className="hero-description">
-          Cultural Buddy helps you understand social norms, discover trusted
+          Common Ground helps you understand social norms, discover trusted
           community events, and prepare conversation starters before you go.
         </p>
 

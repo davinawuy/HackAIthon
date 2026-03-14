@@ -21,7 +21,7 @@ export const howItWorksSteps = [
     id: 'step-3',
     title: 'Prepare before you go',
     description:
-      'Use AI Buddy and conversation starter packs to reduce uncertainty and build confidence.',
+      'Use Common Ground AI Buddy and conversation starter packs to reduce uncertainty and build confidence.',
   },
 ]
 

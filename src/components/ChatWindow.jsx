@@ -1,10 +1,31 @@
 import { useEffect, useRef, useState } from 'react'
+import { aiLogoUrl } from '../assets/branding'
 import { findFaqResponse, starterBotMessages } from '../utils/chatUtils'
 import { Button } from './Button'
 import { Chip } from './Chip'
 
+const CHAT_STORAGE_KEY = 'common-ground-chat-history'
+
+function loadInitialMessages() {
+  if (typeof window === 'undefined') {
+    return starterBotMessages
+  }
+
+  try {
+    const stored = window.localStorage.getItem(CHAT_STORAGE_KEY)
+    if (!stored) {
+      return starterBotMessages
+    }
+
+    const parsed = JSON.parse(stored)
+    return Array.isArray(parsed) && parsed.length > 0 ? parsed : starterBotMessages
+  } catch {
+    return starterBotMessages
+  }
+}
+
 export function ChatWindow({ faqPrompts, quickQuestions }) {
-  const [messages, setMessages] = useState(starterBotMessages)
+  const [messages, setMessages] = useState(loadInitialMessages)
   const [input, setInput] = useState('')
   const [isThinking, setIsThinking] = useState(false)
   const listRef = useRef(null)
@@ -13,6 +34,10 @@ export function ChatWindow({ faqPrompts, quickQuestions }) {
     if (!listRef.current) return
     listRef.current.scrollTop = listRef.current.scrollHeight
   }, [messages, isThinking])
+
+  useEffect(() => {
+    window.localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages))
+  }, [messages])
 
   function pushMessage(role, text) {
     setMessages((current) => [
@@ -45,8 +70,27 @@ export function ChatWindow({ faqPrompts, quickQuestions }) {
     respondToQuestion(input)
   }
 
+  function handleResetChat() {
+    setMessages(starterBotMessages)
+    setInput('')
+    setIsThinking(false)
+  }
+
   return (
-    <section className="chat-shell" aria-label="AI Cultural Buddy chat window">
+    <section className="chat-shell" aria-label="AI Common Ground chat window">
+      <header className="chat-head">
+        <div className="chat-brand">
+          <img src={aiLogoUrl} alt="AI Buddy logo" className="chat-brand-logo" loading="lazy" />
+          <div>
+            <h2>AI Buddy</h2>
+            <p>Dummy assistant with local FAQ matching</p>
+          </div>
+        </div>
+        <Button variant="secondary" size="sm" onClick={handleResetChat}>
+          Reset Chat
+        </Button>
+      </header>
+
       <div className="chat-messages" ref={listRef}>
         {messages.map((message) => (
           <article
@@ -77,7 +121,7 @@ export function ChatWindow({ faqPrompts, quickQuestions }) {
 
       <form className="chat-form" onSubmit={handleSubmit}>
         <label htmlFor="chat-input" className="sr-only">
-          Ask Cultural Buddy
+          Ask Common Ground AI Buddy
         </label>
         <input
           id="chat-input"

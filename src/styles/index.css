@@ -4,6 +4,7 @@
   --bg: #faf7f2;
   --surface: #fdfaf5;
   --surface-soft: #f5e9dc;
+  --surface-glass: rgba(255, 255, 255, 0.74);
   --text: #4e3b31;
   --text-muted: #6b574a;
   --heading: #2f3a34;
@@ -12,8 +13,8 @@
   --accent-green: #7a8b6f;
   --accent-deep: #2f3a34;
   --border: #e8ded2;
-  --shadow-soft: 0 14px 35px rgba(97, 71, 55, 0.08);
-  --shadow-strong: 0 20px 42px rgba(65, 47, 35, 0.13);
+  --shadow-soft: 0 16px 40px rgba(97, 71, 55, 0.08);
+  --shadow-strong: 0 24px 52px rgba(65, 47, 35, 0.14);
   --radius-xl: 1.5rem;
   --radius-lg: 1rem;
   --radius-md: 0.75rem;
@@ -38,8 +39,10 @@ html {
 body {
   margin: 0;
   font-family: 'Public Sans', 'Manrope', 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at top right, #f4ece2 0%, #faf7f2 40%),
-    var(--bg);
+  background:
+    radial-gradient(circle at 8% 14%, rgba(201, 124, 93, 0.16), transparent 27%),
+    radial-gradient(circle at 88% 2%, rgba(122, 139, 111, 0.18), transparent 24%),
+    linear-gradient(155deg, #f8f3ec 0%, #faf7f2 55%, #f4eee5 100%);
   color: var(--text);
   line-height: 1.6;
 }
@@ -308,9 +311,9 @@ main {
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(12px);
-  background: rgba(250, 247, 242, 0.85);
-  border-bottom: 1px solid rgba(232, 222, 210, 0.8);
+  backdrop-filter: blur(15px);
+  background: rgba(250, 247, 242, 0.72);
+  border-bottom: 1px solid rgba(232, 222, 210, 0.92);
 }
 
 .navbar {
@@ -328,17 +331,22 @@ main {
 }
 
 .brand-mark {
-  width: 2.45rem;
-  height: 2.45rem;
+  width: 2.8rem;
+  height: 2.8rem;
   display: grid;
   place-items: center;
-  border-radius: 0.8rem;
-  border: 1px solid rgba(184, 106, 79, 0.28);
-  background: linear-gradient(145deg, #f5e9dc 0%, #e3d4c4 100%);
+  border-radius: 0.9rem;
+  border: 1px solid rgba(184, 106, 79, 0.34);
+  background: linear-gradient(145deg, #f7ecdf 0%, #e2d5c5 100%);
   color: var(--primary-deep);
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 800;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+.brand-logo {
+  width: 1.9rem;
+  height: 1.9rem;
+  object-fit: cover;
+  border-radius: 0.48rem;
 }
 
 .brand-copy {
@@ -402,10 +410,10 @@ main {
 .hero-block {
   position: relative;
   overflow: hidden;
-  margin: 1.2rem auto 0;
+  margin: 1.35rem auto 0;
   width: min(1140px, 92vw);
   border-radius: var(--radius-xl);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(232, 222, 210, 0.95);
   background: linear-gradient(
       150deg,
       rgba(245, 233, 220, 0.9) 5%,
@@ -413,7 +421,7 @@ main {
       rgba(218, 231, 214, 0.45) 100%
     ),
     #fff;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-strong);
   min-height: 26rem;
 }
 
@@ -556,10 +564,10 @@ main {
 }
 
 .step-card {
-  border: 1px solid var(--border);
+  border: 1px solid rgba(232, 222, 210, 0.92);
   border-radius: var(--radius-lg);
   padding: 1.25rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--surface-glass);
   box-shadow: var(--shadow-soft);
 }
 
@@ -586,7 +594,7 @@ main {
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.84);
+  background: var(--surface-glass);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.15rem;
@@ -622,7 +630,7 @@ main {
 .event-card {
   border-radius: var(--radius-lg);
   border: 1px solid rgba(232, 222, 210, 0.86);
-  padding: 1rem;
+  padding: 1.05rem;
   background-size: cover;
   box-shadow: var(--shadow-soft);
   min-height: 18rem;
@@ -764,7 +772,7 @@ main {
 .community-card {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.76);
+  background: var(--surface-glass);
   box-shadow: var(--shadow-soft);
   padding: 1rem;
 }
@@ -793,7 +801,7 @@ main {
 .testimonial-card {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--surface-glass);
   padding: 1rem;
   box-shadow: var(--shadow-soft);
 }
@@ -827,7 +835,7 @@ main {
 .empty-state {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--surface-glass);
   box-shadow: var(--shadow-soft);
 }
 
@@ -910,6 +918,11 @@ main {
 
 .saved-counter {
   padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .mobile-carousel {
@@ -945,11 +958,43 @@ main {
 .chat-shell {
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--surface-glass);
   box-shadow: var(--shadow-soft);
   padding: 1rem;
   display: grid;
   gap: 0.8rem;
+}
+
+.chat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.chat-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.chat-brand-logo {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.68rem;
+  object-fit: cover;
+  border: 1px solid rgba(232, 222, 210, 0.9);
+}
+
+.chat-brand h2 {
+  font-size: 1rem;
+  margin-bottom: 0.12rem;
+}
+
+.chat-brand p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 .chat-messages {
@@ -1024,7 +1069,7 @@ main {
 .safety-card {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.76);
+  background: var(--surface-glass);
   box-shadow: var(--shadow-soft);
 }
 
@@ -1090,7 +1135,7 @@ main {
 .starter-card {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--surface-glass);
   box-shadow: var(--shadow-soft);
   padding: 1rem;
 }
@@ -1177,7 +1222,7 @@ main {
   margin-top: 3.5rem;
   padding-block: 2.2rem;
   border-top: 1px solid var(--border);
-  background: rgba(245, 233, 220, 0.3);
+  background: linear-gradient(180deg, rgba(245, 233, 220, 0.42), rgba(245, 233, 220, 0.25));
 }
 
 .footer-inner {
@@ -1320,6 +1365,10 @@ main {
 
   .chat-form {
     grid-template-columns: 1fr;
+  }
+
+  .chat-head {
+    align-items: flex-start;
   }
 }
 

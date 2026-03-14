@@ -47,6 +47,6 @@ export const starterBotMessages = [
   {
     id: 'bot-1',
     role: 'assistant',
-    text: 'Hi, I am your Cultural Buddy. Ask me anything about Aussie student life, social etiquette, or event prep.',
+    text: 'Hi, I am your Common Ground AI Buddy. Ask me anything about Aussie student life, social etiquette, or event prep.',
   },
 ]
