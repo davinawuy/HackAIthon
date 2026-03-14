@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { findFaqResponse, starterBotMessages } from '../utils/chatUtils'
+import { answerChatQuestion } from '../lib/chat/service'
 import { Button } from './Button'
 import { Chip } from './Chip'
 
-export function ChatWindow({ faqPrompts, quickQuestions }) {
+export function ChatWindow({ faqPrompts, quickQuestions, eventId }) {
   const [messages, setMessages] = useState(starterBotMessages)
   const [input, setInput] = useState('')
   const [isThinking, setIsThinking] = useState(false)
@@ -25,7 +26,7 @@ export function ChatWindow({ faqPrompts, quickQuestions }) {
     ])
   }
 
-  function respondToQuestion(question) {
+  async function respondToQuestion(question) {
     const trimmed = question.trim()
     if (!trimmed || isThinking) return
 
@@ -33,11 +34,17 @@ export function ChatWindow({ faqPrompts, quickQuestions }) {
     setInput('')
     setIsThinking(true)
 
-    window.setTimeout(() => {
-      const answer = findFaqResponse(trimmed, faqPrompts)
+    try {
+      const answer = await answerChatQuestion(trimmed, eventId)
       pushMessage('assistant', answer)
+    } catch (error) {
+      console.error(error)
+
+      const fallback = findFaqResponse(trimmed, faqPrompts)
+      pushMessage('assistant', fallback)
+    } finally {
       setIsThinking(false)
-    }, 600)
+    }
   }
 
   function handleSubmit(event) {

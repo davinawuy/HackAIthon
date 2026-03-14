@@ -8,7 +8,7 @@ export function ChatBuddyPage() {
       <SectionTitle
         eyebrow="AI Chat Buddy"
         title="Ask cultural questions before you attend"
-        description="This MVP uses local dummy FAQ logic now, with a clean structure ready for future AI API integration."
+        description="Ask about events, Aussie etiquette, student life, and what to expect as a newcomer."
         level="h1"
       />
 
@@ -23,10 +23,10 @@ export function ChatBuddyPage() {
             <li>Encourages respectful, confidence-building communication.</li>
           </ul>
 
-          <h3>Future API-ready architecture</h3>
+          <h3>How this chat works</h3>
           <p>
-            The chat handler is isolated in utility logic, so plugging in a real
-            AI endpoint later is straightforward.
+            It uses Gemini when your API key is available, and falls back to the
+            local FAQ logic if AI is unavailable.
           </p>
         </aside>
       </div>
