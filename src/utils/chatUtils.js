@@ -47,6 +47,6 @@ export const starterBotMessages = [
   {
     id: 'bot-1',
     role: 'assistant',
-    text: 'Hi, I am your Common Ground AI Buddy. Ask me anything about Aussie student life, social etiquette, or event prep.',
+    text: "Hi, I’m Informative Ibis. I can help with living in Australia, newcomer tips, local culture, and relevant events.",
   },
 ]
