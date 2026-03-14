@@ -4,6 +4,27 @@ export const heroHighlights = [
   'Conversation prep so you can show up with confidence',
 ]
 
+export const heroVisuals = [
+  {
+    id: 'visual-1',
+    title: 'Flight deck perspective',
+    imageUrl:
+      'https://images.unsplash.com/photo-1533676802871-eca1ae998cd5?auto=format&fit=crop&w=1200&q=80',
+  },
+  {
+    id: 'visual-2',
+    title: 'Advanced mobility prototype',
+    imageUrl:
+      'https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1000&q=80',
+  },
+  {
+    id: 'visual-3',
+    title: 'Urban skyline route',
+    imageUrl:
+      'https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1000&q=80',
+  },
+]
+
 export const howItWorksSteps = [
   {
     id: 'step-1',

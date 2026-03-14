@@ -67,6 +67,8 @@ export const events = [
     tags: ['newcomer friendly', 'verified', 'public space', 'english practice', 'free food', 'student led'],
     interestCategories: ['language exchange', 'cultural events', 'food'],
     imageGradient: 'linear-gradient(135deg, #f5e9dc 0%, #dce8d7 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/South_Bank_inna_Brisbane.jpg/330px-South_Bank_inna_Brisbane.jpg',
     organizer: 'UQ Global Mates',
     attendeesCount: 42,
   },
@@ -89,6 +91,8 @@ export const events = [
     tags: ['newcomer friendly', 'small group', 'free food', 'verified', 'family friendly'],
     interestCategories: ['food', 'cultural events', 'volunteering'],
     imageGradient: 'linear-gradient(135deg, #fae8df 0%, #f0d6c8 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/View_down_Boundary_St.jpg/330px-View_down_Boundary_St.jpg',
     organizer: 'West End Neighbourhood Collective',
     attendeesCount: 18,
   },
@@ -111,6 +115,8 @@ export const events = [
     tags: ['quiet zone', 'small group', 'student led', 'verified', 'newcomer friendly'],
     interestCategories: ['study groups', 'career networking'],
     imageGradient: 'linear-gradient(135deg, #edf1e6 0%, #cfdcc4 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Hawken_Dr_SCIP_precinct_Hawken_Dr_St_Lucia_P1210479.jpg/330px-Hawken_Dr_SCIP_precinct_Hawken_Dr_St_Lucia_P1210479.jpg',
     organizer: 'UQ Study Well Club',
     attendeesCount: 14,
   },
@@ -133,6 +139,8 @@ export const events = [
     tags: ['beginner friendly', 'student led', 'newcomer friendly', 'public space', 'verified'],
     interestCategories: ['sports', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #e4ece4 0%, #d3e1d8 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/A_Block_QUT%2C_Kelvin_Grove%2C_Queensland_05.jpg/330px-A_Block_QUT%2C_Kelvin_Grove%2C_Queensland_05.jpg',
     organizer: 'QUT Social Sports',
     attendeesCount: 29,
   },
@@ -155,6 +163,8 @@ export const events = [
     tags: ['quiet zone', 'small group', 'public space', 'newcomer friendly', 'verified'],
     interestCategories: ['cultural events', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #f1ece2 0%, #d7e0d1 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Alicestreet.jpg/330px-Alicestreet.jpg',
     organizer: 'Brisbane Student Wellbeing Collective',
     attendeesCount: 16,
   },
@@ -177,6 +187,8 @@ export const events = [
     tags: ['public space', 'beginner friendly', 'student led', 'newcomer friendly', 'verified'],
     interestCategories: ['sports', 'language exchange', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #eadfd1 0%, #c8d6ce 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Kangaroo_Point_Cliffs.jpg/330px-Kangaroo_Point_Cliffs.jpg',
     organizer: 'City Active International',
     attendeesCount: 33,
   },
@@ -199,6 +211,8 @@ export const events = [
     tags: ['career', 'verified', 'english practice', 'small group', 'student led'],
     interestCategories: ['career networking', 'language exchange', 'study groups'],
     imageGradient: 'linear-gradient(135deg, #f9eee6 0%, #e9ded1 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Queen_Street_with_443_Queen_Street_in_the_background%2C_Brisbane%2C_January_2021%2C_01.jpg/330px-Queen_Street_with_443_Queen_Street_in_the_background%2C_Brisbane%2C_January_2021%2C_01.jpg',
     organizer: 'Brisbane Employability Hub',
     attendeesCount: 37,
   },
@@ -221,6 +235,8 @@ export const events = [
     tags: ['verified', 'public space', 'newcomer friendly', 'wheelchair access', 'family friendly'],
     interestCategories: ['art', 'cultural events', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #f4e3d4 0%, #e4ccb6 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Queensland_Art_Gallery_river_facade_03.jpg/330px-Queensland_Art_Gallery_river_facade_03.jpg',
     organizer: 'Gallery Learning Team',
     attendeesCount: 52,
   },
@@ -243,6 +259,8 @@ export const events = [
     tags: ['small group', 'quiet zone', 'newcomer friendly', 'student led', 'free food'],
     interestCategories: ['study groups', 'language exchange', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #f7efe4 0%, #dce8d7 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Hawken_Dr_SCIP_precinct_Hawken_Dr_St_Lucia_P1210479.jpg/330px-Hawken_Dr_SCIP_precinct_Hawken_Dr_St_Lucia_P1210479.jpg',
     organizer: 'UQ Library Connect',
     attendeesCount: 24,
   },
@@ -265,6 +283,8 @@ export const events = [
     tags: ['public space', 'newcomer friendly', 'english practice', 'free food', 'family friendly'],
     interestCategories: ['food', 'cultural events', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #f7ead9 0%, #e4dfd3 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/View_down_Boundary_St.jpg/330px-View_down_Boundary_St.jpg',
     organizer: 'Brisbane Welcome Walkers',
     attendeesCount: 46,
   },
@@ -287,6 +307,8 @@ export const events = [
     tags: ['small group', 'quiet zone', 'newcomer friendly', 'family friendly', 'verified'],
     interestCategories: ['religion', 'cultural events', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #f1e7dc 0%, #d5e0d0 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Toowong_buildings_seen_from_the_river%2C_Brisbane%2C_Feb_2020.jpg/330px-Toowong_buildings_seen_from_the_river%2C_Brisbane%2C_Feb_2020.jpg',
     organizer: 'Brisbane Interfaith Youth',
     attendeesCount: 19,
   },
@@ -309,6 +331,8 @@ export const events = [
     tags: ['public space', 'student led', 'verified', 'beginner friendly', 'family friendly'],
     interestCategories: ['volunteering', 'cultural events', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #d7e4d8 0%, #f4e6d8 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Skylines_of_Brisbane_in_winter_misty_morning_seen_from_Kangaroo_Point%2C_Queensland_04.jpg/330px-Skylines_of_Brisbane_in_winter_misty_morning_seen_from_Kangaroo_Point%2C_Queensland_04.jpg',
     organizer: 'Green Brisbane Students',
     attendeesCount: 71,
   },
@@ -331,6 +355,8 @@ export const events = [
     tags: ['student led', 'newcomer friendly', 'beginner friendly', 'small group', 'english practice'],
     interestCategories: ['music', 'art', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #f3e0d3 0%, #dfc3b3 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/View_down_Boundary_St.jpg/330px-View_down_Boundary_St.jpg',
     organizer: 'West End Sound Circle',
     attendeesCount: 35,
   },
@@ -353,6 +379,8 @@ export const events = [
     tags: ['beginner friendly', 'public space', 'student led', 'newcomer friendly', 'verified'],
     interestCategories: ['sports', 'cultural events', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #dae8dc 0%, #f0e6d7 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Hawken_Dr_SCIP_precinct_Hawken_Dr_St_Lucia_P1210479.jpg/330px-Hawken_Dr_SCIP_precinct_Hawken_Dr_St_Lucia_P1210479.jpg',
     organizer: 'UQ Sports Mates',
     attendeesCount: 88,
   },
@@ -375,6 +403,8 @@ export const events = [
     tags: ['family friendly', 'newcomer friendly', 'public space', 'verified', 'free food'],
     interestCategories: ['cultural events', 'food', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #f8efdf 0%, #e2eddc 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/South_Bank_inna_Brisbane.jpg/330px-South_Bank_inna_Brisbane.jpg',
     organizer: 'International Families Network',
     attendeesCount: 41,
   },
@@ -397,6 +427,8 @@ export const events = [
     tags: ['beginner friendly', 'small group', 'verified', 'public space', 'women friendly'],
     interestCategories: ['sports', 'cultural events', 'study groups'],
     imageGradient: 'linear-gradient(135deg, #dde8da 0%, #f3e4d6 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/South_Bank_inna_Brisbane.jpg/330px-South_Bank_inna_Brisbane.jpg',
     organizer: 'Brisbane Mobility Lab',
     attendeesCount: 15,
   },
@@ -419,6 +451,8 @@ export const events = [
     tags: ['english practice', 'small group', 'student led', 'verified', 'quiet zone'],
     interestCategories: ['language exchange', 'study groups', 'career networking'],
     imageGradient: 'linear-gradient(135deg, #f5e9dc 0%, #dae6d4 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Queensland_University_of_Technology%2C_Gardens_Point_campus.jpg/330px-Queensland_University_of_Technology%2C_Gardens_Point_campus.jpg',
     organizer: 'QUT Peer Mentors',
     attendeesCount: 22,
   },
@@ -441,6 +475,8 @@ export const events = [
     tags: ['free food', 'newcomer friendly', 'public space', 'student led', 'verified'],
     interestCategories: ['food', 'cultural events', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #f6e3d4 0%, #d8d9c8 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/South_Bank_inna_Brisbane.jpg/330px-South_Bank_inna_Brisbane.jpg',
     organizer: 'Brisbane Uni Welcome Team',
     attendeesCount: 96,
   },
@@ -463,6 +499,8 @@ export const events = [
     tags: ['women friendly', 'small group', 'verified', 'career', 'newcomer friendly'],
     interestCategories: ['career networking', 'study groups', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #f7e7e1 0%, #e4d5ca 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Queensland_University_of_Technology%2C_Gardens_Point_campus.jpg/330px-Queensland_University_of_Technology%2C_Gardens_Point_campus.jpg',
     organizer: 'QUT Women in Engineering',
     attendeesCount: 27,
   },
@@ -485,6 +523,8 @@ export const events = [
     tags: ['small group', 'quiet zone', 'newcomer friendly', 'family friendly', 'verified'],
     interestCategories: ['art', 'music', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #f4ece1 0%, #dce8d9 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/A_Block_QUT%2C_Kelvin_Grove%2C_Queensland_05.jpg/330px-A_Block_QUT%2C_Kelvin_Grove%2C_Queensland_05.jpg',
     organizer: 'Creative Brisbane Students',
     attendeesCount: 21,
   },
@@ -507,6 +547,8 @@ export const events = [
     tags: ['public space', 'verified', 'newcomer friendly', 'english practice', 'student led'],
     interestCategories: ['cultural events', 'language exchange', 'language exchange'],
     imageGradient: 'linear-gradient(135deg, #d9e4e4 0%, #f4e5d7 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/StateLibQld_1_67435_North_Quay_and_Milton_Reach_of_the_Brisbane_River.jpg/330px-StateLibQld_1_67435_North_Quay_and_Milton_Reach_of_the_Brisbane_River.jpg',
     organizer: 'Brisbane Transit Buddies',
     attendeesCount: 39,
   },
@@ -529,6 +571,8 @@ export const events = [
     tags: ['newcomer friendly', 'verified', 'beginner friendly', 'student led', 'family friendly'],
     interestCategories: ['music', 'cultural events', 'sports'],
     imageGradient: 'linear-gradient(135deg, #f6e4d8 0%, #dcc8bc 100%)',
+    imageUrl:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Queensland_Performing_Arts_Centre_Grey_Street_facade%2C_Brisbane.jpg/330px-Queensland_Performing_Arts_Centre_Grey_Street_facade%2C_Brisbane.jpg',
     organizer: 'Brisbane Cultural Mix Collective',
     attendeesCount: 64,
   },

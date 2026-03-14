@@ -6,7 +6,12 @@ import { Hero } from '../components/Hero'
 import { SectionTitle } from '../components/SectionTitle'
 import { communities } from '../data/communities'
 import { events, featuredEventIds } from '../data/events'
-import { heroHighlights, howItWorksSteps, keyFeatures } from '../data/siteContent'
+import {
+  heroHighlights,
+  heroVisuals,
+  howItWorksSteps,
+  keyFeatures,
+} from '../data/siteContent'
 import { testimonials } from '../data/testimonials'
 
 export function LandingPage({ isBookmarked, onBookmarkToggle }) {
@@ -14,7 +19,7 @@ export function LandingPage({ isBookmarked, onBookmarkToggle }) {
 
   return (
     <>
-      <Hero highlights={heroHighlights} />
+      <Hero highlights={heroHighlights} visuals={heroVisuals} />
 
       <section className="container page-section" id="how-it-works">
         <SectionTitle
