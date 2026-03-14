@@ -9,6 +9,7 @@ import { LandingPage } from './pages/LandingPage'
 import { OnboardingPage } from './pages/OnboardingPage'
 import { SafetyPage } from './pages/SafetyPage'
 import { StartersPage } from './pages/StartersPage'
+import { WhereToGoPage } from './pages/WhereToGoPage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -56,6 +57,7 @@ function App() {
           />
           <Route path="/safety" element={<SafetyPage />} />
           <Route path="/starters" element={<StartersPage />} />
+          <Route path="/where-to-go" element={<WhereToGoPage />} />
         </Routes>
       </main>
 
