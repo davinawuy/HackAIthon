@@ -7,31 +7,38 @@ import { Chip } from './Chip'
 
 const CHAT_STORAGE_KEY = 'common-ground-chat-history'
 
+function normalizeMessages(messages) {
+  return messages.map((message) => ({
+    ...message,
+    events: message.events || [],
+  }))
+}
+
 function loadInitialMessages() {
+  const fallbackMessages = normalizeMessages(starterBotMessages)
+
   if (typeof window === 'undefined') {
-    return starterBotMessages
+    return fallbackMessages
   }
 
   try {
     const stored = window.localStorage.getItem(CHAT_STORAGE_KEY)
+
     if (!stored) {
-      return starterBotMessages
+      return fallbackMessages
     }
 
     const parsed = JSON.parse(stored)
-    return Array.isArray(parsed) && parsed.length > 0 ? parsed : starterBotMessages
+    return Array.isArray(parsed) && parsed.length > 0
+      ? normalizeMessages(parsed)
+      : fallbackMessages
   } catch {
-    return starterBotMessages
+    return fallbackMessages
   }
 }
 
 export function ChatWindow({ faqPrompts, quickQuestions, eventId }) {
-  const [messages, setMessages] = useState(
-    starterBotMessages.map((message) => ({
-      ...message,
-      events: message.events || [],
-    }))
-  )
+  const [messages, setMessages] = useState(loadInitialMessages)
   const [input, setInput] = useState('')
   const [isThinking, setIsThinking] = useState(false)
   const listRef = useRef(null)
@@ -40,6 +47,12 @@ export function ChatWindow({ faqPrompts, quickQuestions, eventId }) {
     if (!listRef.current) return
     listRef.current.scrollTop = listRef.current.scrollHeight
   }, [messages, isThinking])
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages))
+    }
+  }, [messages])
 
   function pushMessage(role, text, events = []) {
     setMessages((current) => [
@@ -80,13 +93,37 @@ export function ChatWindow({ faqPrompts, quickQuestions, eventId }) {
   }
 
   function handleResetChat() {
-    setMessages(starterBotMessages)
+    const resetMessages = normalizeMessages(starterBotMessages)
+    setMessages(resetMessages)
     setInput('')
     setIsThinking(false)
+
+    if (typeof window !== 'undefined') {
+      window.localStorage.removeItem(CHAT_STORAGE_KEY)
+    }
   }
 
   return (
     <section className="chat-shell" aria-label="Informative Ibis chat window">
+      <header className="chat-head">
+        <div className="chat-brand">
+          <img
+            src={aiLogoUrl}
+            alt="Informative Ibis logo"
+            className="chat-brand-logo"
+            loading="lazy"
+          />
+          <div>
+            <h2>Informative Ibis</h2>
+            <p>Practical help for living in Australia, local culture, and newcomer-friendly events</p>
+          </div>
+        </div>
+
+        <Button variant="secondary" size="sm" onClick={handleResetChat}>
+          Reset Chat
+        </Button>
+      </header>
+
       <div className="chat-messages" ref={listRef}>
         {messages.map((message) => (
           <article
