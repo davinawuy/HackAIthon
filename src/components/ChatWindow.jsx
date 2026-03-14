@@ -131,7 +131,7 @@ export function ChatWindow({ faqPrompts, quickQuestions, eventId }) {
             className={`chat-message ${message.role === 'assistant' ? 'assistant' : 'user'}`}
           >
             <div>
-              <p>{message.text}</p>
+              <p style={{ whiteSpace: 'pre-wrap', margin: 0 }}>{message.text}</p>
 
               {message.events?.length > 0 ? (
                 <div

@@ -3,6 +3,7 @@ export const starterSets = [
     id: 'norm-001',
     title: 'Escalators',
     summary: 'Stand to one side so anyone in a rush can walk past.',
+    helpfulCount: 724,
     sections: [
       {
         heading: 'What Locals Expect',
@@ -30,6 +31,7 @@ export const starterSets = [
     id: 'norm-002',
     title: 'Supermarket Checkout',
     summary: 'Keep your bag ready and pack smoothly instead of stopping the line.',
+    helpfulCount: 214,
     sections: [
       {
         heading: 'What Locals Expect',
@@ -57,6 +59,7 @@ export const starterSets = [
     id: 'norm-003',
     title: 'Buses and Trains',
     summary: 'Be ready to tap on or off quickly and avoid blocking the doorway.',
+    helpfulCount: 255,
     sections: [
       {
         heading: 'What Locals Expect',
@@ -84,6 +87,7 @@ export const starterSets = [
     id: 'norm-004',
     title: 'Thanking the Driver',
     summary: 'A quick thank you when leaving a bus is common and polite.',
+    helpfulCount: 223,
     sections: [
       {
         heading: 'What Locals Expect',
@@ -111,6 +115,7 @@ export const starterSets = [
     id: 'norm-005',
     title: 'Queues',
     summary: 'Leave a bit of space and wait your turn without crowding people.',
+    helpfulCount: 124,
     sections: [
       {
         heading: 'What Locals Expect',
@@ -138,6 +143,7 @@ export const starterSets = [
     id: 'norm-006',
     title: 'Lifts and Doorways',
     summary: 'Let people out first before you move in.',
+    helpfulCount: 924,
     sections: [
       {
         heading: 'What Locals Expect',
@@ -165,6 +171,7 @@ export const starterSets = [
     id: 'norm-007',
     title: 'Uni Names and Emails',
     summary: 'Australian university culture is usually friendly, but start slightly formal if unsure.',
+    helpfulCount: 1024,
     sections: [
       {
         heading: 'What Locals Expect',
@@ -192,6 +199,7 @@ export const starterSets = [
     id: 'norm-008',
     title: 'Small Social Phrases',
     summary: 'Short phrases like “no worries” and “all good” are often just friendly reassurance.',
+    helpfulCount: 74,
     sections: [
       {
         heading: 'What Locals Expect',

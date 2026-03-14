@@ -118,6 +118,7 @@ export function StartersPage() {
             title={set.title}
             summary={set.summary}
             sections={set.sections}
+            helpfulCount={set.helpfulCount}
             expanded={expandedCardId === set.id}
             onExpand={() => setExpandedCardId(set.id)}
             onCollapse={() =>

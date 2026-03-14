@@ -26,6 +26,7 @@ export function EventCard({
   isBookmarked,
   onBookmarkToggle,
   showComfort = false,
+  isHighlighted = false,
 }) {
   const motion = useCursorTilt()
   const assessment = getComfortAssessment(event)
@@ -34,7 +35,8 @@ export function EventCard({
 
   return (
     <article
-      className="event-card motion-surface"
+      id={isHighlighted ? `event-${event.id}` : undefined}
+      className={`event-card motion-surface ${isHighlighted ? 'is-highlighted' : ''}`}
       style={{ backgroundImage: event.imageGradient }}
       onMouseMove={motion.onMouseMove}
       onMouseLeave={motion.onMouseLeave}

@@ -7,21 +7,21 @@ export const heroHighlights = [
 export const heroVisuals = [
   {
     id: 'visual-1',
-    title: 'Flight deck perspective',
+    title: 'South Bank, Brisbane',
     imageUrl:
-      'https://images.unsplash.com/photo-1533676802871-eca1ae998cd5?auto=format&fit=crop&w=1200&q=80',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/South_Bank_inna_Brisbane.jpg/1280px-South_Bank_inna_Brisbane.jpg',
   },
   {
     id: 'visual-2',
-    title: 'Advanced mobility prototype',
+    title: 'Kangaroo Point Cliffs',
     imageUrl:
-      'https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1000&q=80',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Kangaroo_Point_Cliffs.jpg/1280px-Kangaroo_Point_Cliffs.jpg',
   },
   {
     id: 'visual-3',
-    title: 'Urban skyline route',
+    title: 'Queen Street, Brisbane City',
     imageUrl:
-      'https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1000&q=80',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Queen_Street_with_443_Queen_Street_in_the_background%2C_Brisbane%2C_January_2021%2C_01.jpg/1280px-Queen_Street_with_443_Queen_Street_in_the_background%2C_Brisbane%2C_January_2021%2C_01.jpg',
   },
 ]
 
