@@ -1,14 +1,17 @@
+import { useState } from 'react'
 import { useCursorTilt } from '../hooks/useCursorTilt'
 
 export function StarterCard({
   title,
   summary,
   sections,
+  helpfulCount = 200,
   expanded = false,
   onExpand,
   onCollapse,
 }) {
   const motion = useCursorTilt()
+  const [feedback, setFeedback] = useState(null)
 
   return (
     <article
@@ -44,6 +47,42 @@ export function StarterCard({
             </ul>
           </div>
         ))}
+
+        <div className="starter-feedback">
+          <p className="starter-feedback-label">Was this helpful?</p>
+
+          <div className="starter-feedback-actions">
+            <button
+              type="button"
+              aria-label="Helpful"
+              title="Helpful"
+              className={`starter-feedback-button starter-feedback-icon ${feedback === 'yes' ? 'is-active' : ''}`}
+              onClick={(event) => {
+                event.stopPropagation()
+                setFeedback('yes')
+              }}
+            >
+              👍
+            </button>
+
+            <button
+              type="button"
+              aria-label="Not helpful"
+              title="Not helpful"
+              className={`starter-feedback-button starter-feedback-icon ${feedback === 'no' ? 'is-active' : ''}`}
+              onClick={(event) => {
+                event.stopPropagation()
+                setFeedback('no')
+              }}
+            >
+              👎
+            </button>
+          </div>
+
+          <p className="starter-feedback-meta">
+            {helpfulCount} other people found this helpful
+          </p>
+        </div>
       </div>
     </article>
   )
