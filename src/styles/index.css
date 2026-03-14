@@ -366,6 +366,35 @@ main {
   gap: 0.35rem;
 }
 
+.translation-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.55rem;
+  padding-left: 0.7rem;
+  border-left: 1px solid rgba(216, 228, 240, 0.92);
+}
+
+.translation-select {
+  min-height: 2.35rem;
+  padding: 0.45rem 2rem 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--heading);
+}
+
+.translation-status {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.translation-status.is-active {
+  color: var(--primary-deep);
+}
+
 .nav-link {
   padding: 0.5rem 0.75rem;
   border-radius: 0.6rem;
@@ -1550,6 +1579,20 @@ main {
 
   .nav-link {
     padding: 0.58rem 0.75rem;
+  }
+
+  .translation-control {
+    margin-left: 0;
+    padding-left: 0;
+    padding-top: 0.35rem;
+    border-left: 0;
+    border-top: 1px solid rgba(216, 228, 240, 0.92);
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .translation-status {
+    white-space: normal;
   }
 
   .steps-grid,

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { commonGroundLogoUrl } from '../assets/branding'
+import { useTranslation } from '../hooks/useTranslation'
 
 const navItems = [
   { label: 'Home', to: '/' },
@@ -13,6 +14,7 @@ const navItems = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const { language, setLanguage, isTranslating, languages } = useTranslation()
 
   return (
     <header className="site-header" id="top">
@@ -54,6 +56,28 @@ export function Navbar() {
               {item.label}
             </NavLink>
           ))}
+
+          <div className="translation-control" data-no-translate="true">
+            <label htmlFor="page-language" className="sr-only">
+              Page language
+            </label>
+            <select
+              id="page-language"
+              className="translation-select"
+              value={language}
+              onChange={(event) => setLanguage(event.target.value)}
+              aria-label="Page language"
+            >
+              {languages.map((option) => (
+                <option key={option.code} value={option.code}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <span className={`translation-status ${isTranslating ? 'is-active' : ''}`}>
+              {isTranslating ? 'Translating...' : 'Translate page'}
+            </span>
+          </div>
         </div>
       </nav>
     </header>
